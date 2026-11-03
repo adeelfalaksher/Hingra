@@ -8,7 +8,7 @@ A native SPECS anatomy lesson: assemble a right elbow, explore its movement, the
 
 1. Clone or download this repository. It includes the native scene, source meshes, audio, material, and package files.
 2. Open `Hingra.esproj` in **Lens Studio 5.23.2**. Allow the initial package and TypeScript import to finish.
-3. Set Preview to **SPECS 27 â†’ Interactive â†’ Plane**. Click the Preview reset button if needed.
+3. Set Preview to **SPECS 27 → Interactive → Plane**. Click the Preview reset button if needed.
 4. Aim at a bone and click to select it; on SPECS, use standard SIK ray/pinch input.
 5. Choose the humerus, ulna, and radius in the requested order. Wrong selections give feedback and leave the step unchanged.
 6. Drag the slider to bend the assembled forearm. Choose **Test recall**, answer three prompts, then **Restart**.
@@ -48,7 +48,7 @@ For interaction tests, open the LEAF panel in Lens Studio and run each registere
 
 ## Anatomy and scope
 
-BodyParts3D, Â© The Database Center for Life Science licensed under CC Attribution 4.0 International.
+BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International.
 
 The humerus, radius, and ulna come from the official BodyParts3D 4.0 reduced OBJ archive. The project converts axes, scales and recentres the source meshes, adds teaching colours, and animates an approximate single-axis pivot. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and `devpost/anatomy-assets.json`.
 
