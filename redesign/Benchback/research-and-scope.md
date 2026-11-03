@@ -31,14 +31,14 @@ These motivate the problem. They do not establish that this Lens reduces waste, 
 
 ## Differentiation and limits
 AR repair guidance already exists. RePairAR (CHI 2026, DOI 10.1145/3772318.3790494) uses video/MLLM extraction; do not claim invention of AR reassembly guidance or reproduce its pipeline.
-Benchback's specific approach: an immediate session-local spatial ledger, user-marked source and tray positions, reverse-order guidance, per-group quantity reconciliation, undo, and a completion guard. No recording, model inference, backend, or paid API is needed.
+Benchback's specific approach: an immediate spatial ledger, user-marked source and tray regions, suggested reverse-order guidance with explicit group selection, local checkpoint recovery, per-group quantity reconciliation, undo, and a completion guard. No recording, model inference, backend, or paid API is needed.
 A conventional mat records positions on a 2D grid; Benchback retains both original and storage locations in the room and focuses only the current return step.
 
 ## Working behavior
 Start with an empty ledger. User creates each record; no preloaded parts or canned recognition.
 Drag two standard SIK handles to mark source and tray. Choose part kind, quantity, and optional screw length. Commit the step.
-Return mode traverses the recorded steps last-first. It highlights the actual saved tray and source, draws a connecting cue, and reconciles explicitly user-confirmed returns one item at a time. Wrong-step selections cannot advance. Completion requires every recorded count to be zero.
-Undo and reset are real reversible state operations. A new session clears the session-local ledger. Do not claim persistence across app restarts, physical-part detection, or verification that a screw has been installed.
+Return mode suggests the latest outstanding group, with explicit activation of another pending group when the user's task requires it. It highlights the actual saved tray and source region, draws a connecting cue, and reconciles explicitly user-confirmed returns one item at a time. Reviewing alone cannot change counts. Stale or duplicate actions cannot advance. Completion requires every recorded count to be zero.
+Undo and new-job reset must be reversible state operations. Accepted changes must save locally. Reopening restores data into an explicit manual workspace-alignment gate; it must not pretend that saved coordinates prove successful physical relocalization. Neither persistence nor other Benchback functions have been implemented or tested yet. Physical-part detection and verification that a screw has been installed remain out of scope.
 Working geometry and tests must exercise arbitrary user-created records, not just one fixed sequence.
 This is an organization aid, not device-specific repair instructions or electrical/battery safety guidance.
 
@@ -53,3 +53,6 @@ Apply small contextual cards, transient details, low-arm effort, roughly 1m deta
 Official downloaded Lens Studio 5.24.1 installer (806527680 bytes) has a valid Snap Inc. Authenticode signature.
 Installer log says installation succeeded; executable reports 5.24.1. Previous 5.23.2 was replaced in place. Old Hingra source remains in Git history, local tag archive-hingra-before-pivot, and a source ZIP.
 Build a fresh native project. Do not relabel the old anatomy lesson as the new experience.
+
+## Critical refinement after user review request
+See product-review.md for the four-criterion evidence table, known gaps, source-region precision limit, local save/recovery requirements, flexible reassembly order and release gates. The earlier session-only, strict-order design is superseded by that review. This is an implementation plan, not a claim of working behavior.

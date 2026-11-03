@@ -8,7 +8,7 @@ decision_source: assistant defaults under the user's explicit redesign and auton
 The user rejected Hingra's anatomy lesson and requested a useful, impactful, fully working AR app, deeper challenge research, Lens Studio 5.24.1, and matching GitHub changes. All product choices below are assistant defaults, awaiting the user's review. No interview or approval is claimed.
 
 ## The one spatial moment
-While taking an object apart, the user marks where a part group came from and where they placed it. When putting it back together, Benchback points from the saved tray location to the saved source and keeps a count until every recorded piece has been explicitly returned. (default)
+While taking an object apart, the user marks where a part group came from and where they placed it. When putting it back together, Benchback points from the saved tray location to the saved source region and keeps a count until every recorded piece has been explicitly user-confirmed as returned. Committed progress saves locally; after reopening, the user must align the workspace before spatial return actions are enabled. (default)
 
 ## Why it belongs on glasses
 - Uses: draws in the world; leaves the user's hands available between brief pinch interactions.
@@ -34,15 +34,16 @@ While taking an object apart, the user marks where a part group came from and wh
 - Create a group: one large UIKit action starts a draft.
 - Mark source and tray: grab/drag two ordinary SIK manipulation handles.
 - Choose part kind: cycle Screw / Clip / Part. (default)
-- Enter quantity: large minus/plus controls, bounded 1 to 99. (default)
+- Quick recording defaults to one part and requires no metadata editing. Optional quantity uses large minus/plus controls, bounded 1 to 99. Source regions represent part groups, not millimeter-accurate screw-hole identification. (default)
 - Optional screw length: explicit user-entered value; unknown stays labeled unmeasured. No inferred screw identification.
 - Commit/cancel: explicit UIKit controls.
-- Return mode: focus the current pending group, review other groups if needed, and confirm one returned piece at a time. A reviewed out-of-order group cannot advance the return sequence.
+- Return mode: suggest the latest pending group. The user may explicitly activate another pending group, inspect its saved details, and confirm one returned piece at a time. Reviewing a group alone cannot change counts. Stale action tokens or state revisions cannot decrement another group.
 - Undo: restore the previous committed record, return count, or reset.
-- Reset/new session: clearly indicated action with recovery through Undo.
+- Reset/new session: explicit in-app confirmation and recovery through Undo. Accepted changes save locally; a visible save error must not be presented as saved progress.
 - Targets highlight when aimed at. No custom hand gesture or voice dependency.
 
 ## When things show
+- First launch starts empty. If valid saved data exists, offer Resume or New job. Resume restores data into an alignment gate before enabling location guidance or return confirmation.
 - Empty session: short first-use instructions and one primary action.
 - Draft: only the two placement handles and relevant part/count details are emphasized.
 - Recording: compact pending count and Add group / Start return actions.
@@ -50,17 +51,20 @@ While taking an object apart, the user marks where a part group came from and wh
 - Reviewing an older group: visibly review-only until the current pending group is focused.
 - Complete: confirmation that all recorded counts are reconciled, with an explicit new-session action.
 - Out-of-view target: a restrained direction hint and short cue, without a wall of persistent labels. (default)
+- Save/recovery: show Saved only after readback; recover the previous valid checkpoint when available. Unsupported or corrupt data must produce a visible recovery state rather than silent erasure.
 
 ## Done criteria
 Each criterion must be checked in native Lens Studio Interactive Preview.
 1. A fresh session contains zero part records. User input creates multiple groups with independently moved source/tray positions and different quantities; reopening the draft or reviewing a group displays the actual saved values.
 2. Invalid quantities/coordinates, empty return, accidental overlapping source/tray markers, and commit outside draft are rejected without corrupting the ledger.
-3. Return mode selects the latest pending group and guides between its saved locations. Reviewing or confirming the wrong group cannot advance. Each valid confirmation decrements exactly one recorded piece.
-4. Returning all pieces advances backwards through groups and only completes when the total outstanding count is zero. Undo restores the exact previous group/count/phase.
-5. Moving the workspace preserves each saved relative location; starting a new session clears the ledger, and Undo can recover it.
+3. Return mode suggests the latest pending group and guides between its saved locations. Reviewing alone does not change the active group. Explicitly activating another pending group changes the sequence; each valid confirmation decrements exactly one piece from that active group. Duplicate/stale intents are rejected.
+4. Returning pieces suggests the latest remaining group and only completes when the total outstanding count is zero. Undo restores the exact previous group/count/phase, including an explicit sequence change.
+5. Moving the workspace preserves each saved relative location; starting a new job requires confirmation, clears the ledger, and Undo can recover it.
+6. A native Lens reset/reopen restores committed data and counts. Spatial return actions remain disabled until workspace alignment is explicitly confirmed. Corrupt data, unsupported versions and failed storage writes are exercised and surfaced without falsely reporting success.
 
 ## Out of scope
-- Physical part recognition, automatic screw-size measurement, installation verification, device-specific repair or diagnostic instructions, always-on video, online accounts, cross-device sharing, and persistence across Lens restarts.
+- Physical part recognition, automatic screw-size measurement, installation verification, device-specific repair or diagnostic instructions, always-on video, online accounts, cross-device sharing, automatic physical relocalization, and millimeter-accurate screw-hole mapping.
+- Local ledger persistence is in scope. Persisted coordinates alone are not persistent real-world anchors; the user aligns the workspace after resuming.
 - Claims of measured repair-time savings, waste reduction, educational efficacy, or physical-glasses comfort without evidence.
 
 ## Risks and open questions
@@ -68,7 +72,7 @@ Each criterion must be checked in native Lens Studio Interactive Preview.
 - The fresh default project still needs SPECS target/camera/package setup through native tools after sign-in.
 - Physical anchoring precision and hand-tracking feel cannot be established with desktop preview.
 - User-marked locations and quantities can be wrong; the tool must retain their explicit origin and never imply computer-vision verification.
-- AR repair guidance already exists; differentiation is this session-local source/tray ledger and reversible quantity reconciliation, not a claim to invent the category.
+- AR repair guidance already exists; differentiation is this source/tray ledger, explicit recovery and reversible quantity reconciliation. Manual input convenience remains unmeasured. See product-review.md for the critical assessment and required release gates.
 
 ## Build notes for CLAD
 - Build for SPECS so it runs and can be demonstrated in Lens Studio's preview. No SPECS device is available.

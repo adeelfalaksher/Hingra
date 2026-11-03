@@ -1,7 +1,7 @@
 {
   "name": "Benchback",
   "tier": "interactive",
-  "status": "planned; awaiting Lens Studio account sign-in",
+  "status": "planned; Snapchat login page opened for user; no native Benchback build yet",
   "version": "Lens Studio 5.24.1.26100516",
   "target": "SPECS",
   "theme": {
@@ -30,7 +30,7 @@
     {
       "type": "sfx",
       "name": "BenchbackAttention",
-      "description": "Restrained attention cue for an invalid or out-of-order action"
+      "description": "Restrained attention cue for an invalid, stale or duplicate action"
     },
     {
       "type": "ui",
@@ -81,11 +81,11 @@
           "labels": [
             "RETURN GROUP 32",
             "99 pieces left in this group",
-            "Tray → original source",
+            "Tray -> source region",
             "Confirm one returned",
             "Undo",
-            "Review next group",
-            "Focus current return"
+            "Review another group",
+            "Activate reviewed group"
           ]
         },
         {
@@ -95,6 +95,18 @@
             "All recorded pieces reconciled.",
             "New session",
             "Undo"
+          ]
+        },
+        {
+          "element": "resume",
+          "container": "backplate",
+          "labels": [
+            "Saved job found",
+            "Resume job",
+            "Align workspace to the original task",
+            "Alignment confirmed",
+            "Saved",
+            "Save failed - progress may not survive closing"
           ]
         }
       ]
@@ -133,16 +145,35 @@
     "BenchbackContextUI.ts",
     "BenchbackSpatialUI.ts",
     "BenchbackAudioController.ts",
-    "BenchbackSceneContracts.ts"
+    "BenchbackSceneContracts.ts",
+    "BenchbackStorage.ts"
   ],
-  "stateOwnership": "BenchbackState is the sole owner of ledger, draft metadata, counts, phase, selection and undo history. UI is passive.",
+  "stateOwnership": "BenchbackState owns ledger, draft metadata, counts, phase, active/reviewed group, intent revision and undo. BenchbackStorage handles validated checkpoints; UI is passive.",
   "pipeline": "Generate planned assets through CLAD skills; bootstrap semantic roots with VirtualScene; compile and inspect actual native preview; run each LEAF scenario separately.",
   "music": "none; focused utility",
-  "verification": "See test-plan.md. No Benchback tests have been run yet.",
+  "verification": "See test-plan.md and product-review.md. No Benchback tests have been run.",
   "publication": "Keep existing main until replacement works. Preserve old project in Git history. Do not submit the hackathon entry.",
   "limits": [
-    "User-marked positions and counts; no camera recognition or installation verification",
-    "Session-local state; no cross-restart persistence claim",
-    "Physical-glasses comfort and anchor accuracy unproven"
-  ]
+    "User-marked source regions and counts; no physical recognition or installation verification",
+    "Local persistence is a required unimplemented feature; automatic physical relocalization is not claimed",
+    "Physical-glasses comfort, anchor accuracy and repair convenience remain unproven"
+  ],
+  "revision": "2: local recovery, explicit resume alignment, flexible active group and quick record",
+  "workflow": [
+    "First launch empty; resume prompt only when saved data exists",
+    "Place workspace and mark source/tray regions; default one part with optional metadata",
+    "Save accepted changes locally and verify readback",
+    "Suggest latest pending group; permit explicit activation of another pending group",
+    "Confirm one piece per unique intent; reject stale state/group events",
+    "Resume into manual alignment gate before enabling spatial returns",
+    "Undo accepted operations and recover the previous valid checkpoint"
+  ],
+  "persistence": {
+    "backend": "PersistentStorageSystem.store / GeneralDataStore, subject to native verification",
+    "format": "Versioned validated JSON, current and previous checkpoints with monotonically increasing revisions",
+    "save": "At accepted state changes, verify readback before Saved status",
+    "resume": "Restore data first; user confirms workspace alignment before actionable location guidance",
+    "failures": "Visible storage or recovery error; no silent clearing of unsupported/corrupt data",
+    "physicalRelocalization": "Not claimed; no automatic world-anchor recovery"
+  }
 }
