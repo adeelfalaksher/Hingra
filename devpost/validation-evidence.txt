@@ -1,0 +1,16 @@
+Native Lens Studio preview log excerpts, 3 November 2026. Lens Studio clock is UTC+05:00.
+The negative control is an expected deliberate assertion failure.
+
+I 14:41:56.251 [DefaultLeafScenarioManager] [  0.002s]RUNS: hingra-negative-control with args: []
+I 14:42:00.546 [DefaultLeafScenarioManager] [  4.324s]FAILED: hingra-negative-control - AssertionError: Expected: "__intentional_negative_control__" - Received: "HINGRA"
+I 14:43:00.928 [DefaultLeafScenarioManager] [  0.000s]RUNS: hingra-assembly with args: []
+I 14:43:09.829 [DefaultLeafScenarioManager] [  8.902s]PASSED: hingra-assembly
+I 14:43:49.273 [DefaultLeafScenarioManager] [  0.000s]RUNS: hingra-movement with args: []
+I 14:43:59.413 [DefaultLeafScenarioManager] [ 10.141s]PASSED: hingra-movement
+I 14:45:11.419 [DefaultLeafScenarioManager] [  0.000s]RUNS: hingra-recall with args: []
+I 14:45:25.119 [DefaultLeafScenarioManager] [ 13.716s]PASSED: hingra-recall
+I 14:46:20.800 [DefaultLeafScenarioManager] [  0.000s]RUNS: hingra-restart with args: []
+I 14:46:31.755 [DefaultLeafScenarioManager] [ 10.956s]PASSED: hingra-restart
+I 14:47:13.640 [DefaultLeafScenarioManager] [  0.000s]RUNS: hingra-ik-input with args: []
+I 14:47:19.007 [Hingra IK] route=far-field
+I 14:47:25.665 [DefaultLeafScenarioManager] [ 12.026s]PASSED: hingra-ik-input

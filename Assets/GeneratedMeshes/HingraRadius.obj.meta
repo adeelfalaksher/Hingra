@@ -1,0 +1,85 @@
+- !<AssetImportMetadata/640b7777-105a-4897-b393-8a8cacd62d79>
+  ImportedAssetIds:
+    26ba073d67b9d0dd: !<reference> 85d9659e-f3c8-4ace-a52a-8e7e78e3d972
+    640d11ddc455fe6e: !<reference> cb6bbfbb-6264-48b2-80ea-ee83ca13a117
+    652b99845b567fdf: !<reference> b19ff955-fdf9-4bc2-b765-1f5a9082266a
+    Meshes/HingraRadius: !<reference> d8f4b3dc-75f1-4dd2-8d5a-ea20a5e62862
+    Scene: !<reference> 925f7c35-692a-40da-9989-97ddfd961c2b
+  ImporterName: ObjImporter
+  PrimaryAsset: !<reference> 925f7c35-692a-40da-9989-97ddfd961c2b
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 84a7edaf-59f9-4725-b5cc-f350f285fbf5
+  DependentFiles:
+    []
+  ImporterSettings: !<D3FileImporterSettingsBase>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<ObjectPrefabAssetData/84a7edaf-59f9-4725-b5cc-f350f285fbf5>
+  Prototype: !<ObjectOwner/c4e74ad1-101a-4c85-ae14-b49a992a59d8>
+    PackagePath: ""
+    objects:
+      - !<own> 85d9659e-f3c8-4ace-5ad5-7181871c268d
+- !<SceneObject/85d9659e-f3c8-4ace-5ad5-7181871c268d>
+  PrefabRemaps:
+    []
+  Name: HingraRadius
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> b19ff955-fdf9-4bc2-489a-e0a56f7dd995
+  Components:
+    []
+- !<SceneObject/b19ff955-fdf9-4bc2-489a-e0a56f7dd995>
+  PrefabRemaps:
+    []
+  Name: HingraRadius
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> cb6bbfbb-6264-48b2-7f15-117c35ec5ee8
+- !<RenderMeshVisual/cb6bbfbb-6264-48b2-7f15-117c35ec5ee8>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> d8f4b3dc-75f1-4dd2-8d5a-ea20a5e62862
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

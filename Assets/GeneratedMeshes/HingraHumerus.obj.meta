@@ -1,0 +1,85 @@
+- !<AssetImportMetadata/ecf241c1-790c-4545-8d04-c37c6696a872>
+  ImportedAssetIds:
+    26ba073d67b9d0dd: !<reference> a62a4c20-8d72-4022-b965-85fa9090cbfb
+    4e6c302c1726ded4: !<reference> 689bcb93-9eca-4f13-b562-8b409a812f41
+    Meshes/HingraHumerus: !<reference> 48a59194-54a6-490e-8c74-277605f666bc
+    Scene: !<reference> 53254805-5630-493f-ba07-a2dc828d4281
+    b2baa6fedcbf600f: !<reference> 4024c50b-c32f-489d-82f9-3bc13334e638
+  ImporterName: ObjImporter
+  PrimaryAsset: !<reference> 53254805-5630-493f-ba07-a2dc828d4281
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 48882701-3c68-4574-81b5-b4a9027e27e8
+  DependentFiles:
+    []
+  ImporterSettings: !<D3FileImporterSettingsBase>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<RenderMeshVisual/4024c50b-c32f-489d-7d06-c43ecccb19c7>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 48a59194-54a6-490e-8c74-277605f666bc
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ObjectPrefabAssetData/48882701-3c68-4574-81b5-b4a9027e27e8>
+  Prototype: !<ObjectOwner/2487e88b-ce81-457b-8c11-9afb6563099e>
+    PackagePath: ""
+    objects:
+      - !<own> a62a4c20-8d72-4022-469a-7a056f6f3404
+- !<SceneObject/689bcb93-9eca-4f13-4a9d-74bf657ed0be>
+  PrefabRemaps:
+    []
+  Name: HingraHumerus
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4024c50b-c32f-489d-7d06-c43ecccb19c7
+- !<SceneObject/a62a4c20-8d72-4022-469a-7a056f6f3404>
+  PrefabRemaps:
+    []
+  Name: HingraHumerus
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 689bcb93-9eca-4f13-4a9d-74bf657ed0be
+  Components:
+    []

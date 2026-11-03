@@ -1,0 +1,58 @@
+- !<AssetImportMetadata/d636c579-06d0-4033-b0ac-ec2b003d36b7>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c8ab1051-f627-4d2e-aa6c-fdbc2c1f575b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c8ab1051-f627-4d2e-aa6c-fdbc2c1f575b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 461e9439-7394-4960-b460-e8f183ed7437
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/461e9439-7394-4960-b460-e8f183ed7437>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 33069875-d021-4884-971f-55f9be98c465
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    anatomy: false
+    audioVolume: false
+    lessonUI: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - lessonUI: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      anatomy: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      audioVolume: 0.200000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Hingra — lesson coordination"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input AssignableType_1 lessonUI {"hint":"Passive lesson panel component."}'
+    - '// @input AssignableType_2 anatomy {"hint":"Anatomy and SIK selection component."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float audioVolume = 0.2 {"hint":"Quiet volume for action feedback.", "widget":"slider", "min":0, "max":0.5, "step":0.05}'
+    - '// @ui {"widget":"group_end"}'

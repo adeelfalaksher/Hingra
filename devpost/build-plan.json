@@ -1,0 +1,91 @@
+{
+  "name": "Hingra",
+  "tier": "interactive",
+  "theme": {
+    "style": "clean, naturalistic",
+    "palette": "warm ivory, teal, amber, coral",
+    "mood": "focused"
+  },
+  "assets": [
+    {
+      "type": "mesh",
+      "name": "Humerus",
+      "backend": "licensed import",
+      "source": "BodyParts3D official reduced OBJ",
+      "animate": "no"
+    },
+    {
+      "type": "mesh",
+      "name": "Radius",
+      "backend": "licensed import",
+      "source": "BodyParts3D official reduced OBJ",
+      "animate": "yes"
+    },
+    {
+      "type": "mesh",
+      "name": "Ulna",
+      "backend": "licensed import",
+      "source": "BodyParts3D official reduced OBJ",
+      "animate": "yes"
+    },
+    {
+      "type": "sfx",
+      "name": "HingraSelect",
+      "description": "quiet soft physical click"
+    },
+    {
+      "type": "sfx",
+      "name": "HingraComplete",
+      "description": "restrained confirmation cue"
+    },
+    {
+      "type": "ui",
+      "name": "HingraLessonUI",
+      "elements": [
+        "instruction and progress",
+        "movement slider",
+        "feedback and recall result",
+        "restart action"
+      ]
+    }
+  ],
+  "meshDecision": "Use licensed source anatomy rather than AI-invented anatomical shapes. Transform the two forearm meshes as an articulated group. This is an intentional source-asset path, documented before generation.",
+  "audioDecision": "No background music: focused educational tool.",
+  "modules": [
+    "HingraMain.ts",
+    "HingraState.ts",
+    "HingraLessonUI.ts",
+    "HingraAnatomyController.ts",
+    "HingraAudioController.ts",
+    "HingraSceneContracts.ts"
+  ],
+  "spatialLayout": [
+    {
+      "name": "Anatomy",
+      "position": [
+        -12,
+        0,
+        -110
+      ],
+      "estimatedBoundsCm": [
+        18,
+        30,
+        12
+      ]
+    },
+    {
+      "name": "LessonUI",
+      "position": [
+        13,
+        0,
+        -110
+      ],
+      "estimatedBoundsCm": [
+        23,
+        38,
+        2
+      ]
+    }
+  ],
+  "validation": "Native TypeScript compile, runtime logs, fresh preview captures, LEAF for done criteria; meaningful pure state tests."
+}

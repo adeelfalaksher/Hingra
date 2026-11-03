@@ -1,0 +1,60 @@
+{
+  "source": "BodyParts3D 4.0 official reduced OBJ archive",
+  "sourceURL": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_BP3D_4.0_obj_99.zip",
+  "sourceUnits": "millimetres, Z up",
+  "lensUnits": "centimetres, Y up",
+  "uniformScale": 0.055,
+  "pivotSourceMm": [
+    -225.0,
+    -75.0,
+    1040.0
+  ],
+  "teachingNote": "Approximate elbow pivot and simplified single-axis flexion; no clinical simulation.",
+  "bones": {
+    "Humerus": {
+      "sourceId": "FJ3368",
+      "sourceSHA256": "85f5445a11ecb029b027db0b9b34933982836d442b19ff531d1ca35a3bc3a237",
+      "canonicalPositionCm": [
+        1.8993974999999996,
+        7.857850000000001,
+        0.03459774999999976
+      ],
+      "boundsCm": [
+        5.541305,
+        16.903699999999997,
+        2.7048945
+      ],
+      "vertexCount": 2233
+    },
+    "Radius": {
+      "sourceId": "FJ3349",
+      "sourceSHA256": "0f824e639b13ea02959734a0d9bd8d7ca67d0b51f531a138d769e1d3b22e0c98",
+      "canonicalPositionCm": [
+        -1.3576200000000007,
+        -6.575662500000001,
+        1.0452915
+      ],
+      "boundsCm": [
+        3.2836100000000012,
+        12.606824999999995,
+        3.619297
+      ],
+      "vertexCount": 388
+    },
+    "Ulna": {
+      "sourceId": "FJ3391",
+      "sourceSHA256": "0aad73148e036c980ab24dfa675fcc1f109e5c60d82c12f3696420cf93cb4a98",
+      "canonicalPositionCm": [
+        0.16335,
+        -6.115367499999999,
+        0.503063
+      ],
+      "boundsCm": [
+        2.7663900000000003,
+        13.600235000000003,
+        4.328214
+      ],
+      "vertexCount": 500
+    }
+  }
+}

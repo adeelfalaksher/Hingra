@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/73f444f2-c801-486e-bdb6-d634c23c3fcd>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b774ffdd-122a-4707-b0a5-06ae73fcca0f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b774ffdd-122a-4707-b0a5-06ae73fcca0f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 7ae70165-6980-4602-a538-fcd7887dfb59
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/7ae70165-6980-4602-a538-fcd7887dfb59>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: bfdb9154-2042-4c98-bb03-b3ac148cf307
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    accentColor: false
+    panelWidth: false
+    rowGap: false
+    textColor: false
+    textScale: false
+    title: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - title: HINGRA
+      panelWidth: !<float> 23.000000
+      textScale: !<float> 1.000000
+      rowGap: 0.700000
+      textColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      accentColor: !<Vec4> {x: 0.450000, y: 0.900000, z: 0.820000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Hingra — lesson panel"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input string title = "HINGRA" {"hint":"Panel title."}'
+    - '// @input float panelWidth = 23 {"hint":"Panel width in centimetres.", "widget":"slider", "min":20, "max":28, "step":1}'
+    - '// @input float textScale = 1 {"hint":"Scale the shared type hierarchy.", "widget":"slider", "min":0.9, "max":1.2, "step":0.05}'
+    - '// @input float rowGap = 0.7 {"hint":"Gap between layout rows, in centimetres.", "widget":"slider", "min":0.5, "max":1.2, "step":0.1}'
+    - '// @input vec4 textColor = "{1,1,1,1}" {"hint":"Primary text colour.", "widget":"color"}'
+    - '// @input vec4 accentColor = "{0.45,0.9,0.82,1}" {"hint":"Progress and emphasis colour.", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

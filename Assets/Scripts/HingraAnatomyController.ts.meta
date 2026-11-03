@@ -1,0 +1,79 @@
+- !<AssetImportMetadata/367ab0c2-981d-4d53-b829-ea623d2ec0ef>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 22359fa3-9f04-4694-8194-632cb3a2fcc7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 22359fa3-9f04-4694-8194-632cb3a2fcc7
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f6964243-ee0c-4243-8104-5ce4a065d820
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/f6964243-ee0c-4243-8104-5ce4a065d820>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 2b6f30a1-9d5f-4889-b207-f2d1a89ecfd9
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    boneMaterial: false
+    debugColliders: false
+    forearm: false
+    humerus: false
+    humerusColor: false
+    radius: false
+    radiusColor: false
+    transitionSeconds: false
+    ulna: false
+    ulnaColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - humerus: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ulna: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      radius: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      forearm: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      boneMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      humerusColor: !<Vec4> {x: 1.000000, y: 0.720000, z: 0.250000, w: 1.000000}
+      ulnaColor: !<Vec4> {x: 0.300000, y: 0.880000, z: 0.780000, w: 1.000000}
+      radiusColor: !<Vec4> {x: 1.000000, y: 0.500000, z: 0.420000, w: 1.000000}
+      transitionSeconds: 0.400000
+      debugColliders: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Hingra — anatomy and selection"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input SceneObject humerus {"hint":"Centred humerus mesh wrapper."}'
+    - '// @input SceneObject ulna {"hint":"Centred ulna mesh wrapper."}'
+    - '// @input SceneObject radius {"hint":"Centred radius mesh wrapper."}'
+    - '// @input SceneObject forearm {"hint":"Shared forearm pivot at the approximate elbow centre."}'
+    - '// @input Asset.Material boneMaterial {"hint":"Base bone material, cloned for each visual."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input vec4 humerusColor = "{1,0.72,0.25,1}" {"hint":"Humerus teaching colour.", "widget":"color"}'
+    - '// @input vec4 ulnaColor = "{0.3,0.88,0.78,1}" {"hint":"Ulna teaching colour.", "widget":"color"}'
+    - '// @input vec4 radiusColor = "{1,0.5,0.42,1}" {"hint":"Radius teaching colour.", "widget":"color"}'
+    - '// @input float transitionSeconds = 0.4 {"hint":"Assembly transition time in seconds.", "widget":"slider", "min":0.1, "max":1, "step":0.05}'
+    - '// @input bool debugColliders {"hint":"Draw selection volumes when diagnosing hit targets."}'
+    - '// @ui {"widget":"group_end"}'
