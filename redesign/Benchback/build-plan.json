@@ -1,0 +1,148 @@
+{
+  "name": "Benchback",
+  "tier": "interactive",
+  "status": "planned; awaiting Lens Studio account sign-in",
+  "version": "Lens Studio 5.24.1.26100516",
+  "target": "SPECS",
+  "theme": {
+    "style": "clean, naturalistic spatial tool",
+    "palette": "warm white, amber source, teal tray, coral attention",
+    "mood": "calm and focused"
+  },
+  "assets": [
+    {
+      "type": "mesh",
+      "name": "BenchbackMarkers",
+      "backend": "mesh-builder-scripting",
+      "description": "Code-authored 6 cm source and tray ring markers with a distinct grip silhouette; animated connector follows saved locations. Intended as spatial annotations, not physical part replicas.",
+      "animate": "yes"
+    },
+    {
+      "type": "sfx",
+      "name": "BenchbackRecord",
+      "description": "Quiet 80ms confirmation for a committed spatial record"
+    },
+    {
+      "type": "sfx",
+      "name": "BenchbackReturn",
+      "description": "Short soft cue when a part group is reconciled"
+    },
+    {
+      "type": "sfx",
+      "name": "BenchbackAttention",
+      "description": "Restrained attention cue for an invalid or out-of-order action"
+    },
+    {
+      "type": "ui",
+      "name": "BenchbackContextUI",
+      "elements": [
+        {
+          "element": "first-use",
+          "container": "backplate",
+          "labels": [
+            "BENCHBACK",
+            "Remember where every part belongs.",
+            "Mark source. Mark tray. Record the group.",
+            "Record first group"
+          ]
+        },
+        {
+          "element": "draft",
+          "container": "backplate",
+          "labels": [
+            "NEW GROUP",
+            "Drag amber to the source; teal to the tray.",
+            "Kind: Screw",
+            "Quantity: 99",
+            "Length: unmeasured",
+            "Record group",
+            "Cancel"
+          ],
+          "exposes": [
+            "setView(view)"
+          ],
+          "emits": [
+            "onAction(intent)"
+          ]
+        },
+        {
+          "element": "session",
+          "container": "backplate",
+          "labels": [
+            "32 groups · 3,168 pieces pending",
+            "Record another group",
+            "Start return",
+            "Undo"
+          ]
+        },
+        {
+          "element": "return",
+          "container": "backplate",
+          "labels": [
+            "RETURN GROUP 32",
+            "99 pieces left in this group",
+            "Tray → original source",
+            "Confirm one returned",
+            "Undo",
+            "Review next group",
+            "Focus current return"
+          ]
+        },
+        {
+          "element": "complete",
+          "container": "backplate",
+          "labels": [
+            "All recorded pieces reconciled.",
+            "New session",
+            "Undo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ui",
+      "name": "BenchbackSpatialUI",
+      "elements": [
+        {
+          "element": "source-tray-badges",
+          "container": "backplate",
+          "labels": [
+            "SOURCE · 32",
+            "TRAY · 32",
+            "Review only",
+            "Return this group"
+          ]
+        }
+      ]
+    }
+  ],
+  "authoredRoots": [
+    "BenchbackExperience",
+    "BenchbackWorkspace",
+    "BenchbackDraftSource",
+    "BenchbackDraftTray",
+    "BenchbackContext",
+    "BenchbackController",
+    "BenchbackTests"
+  ],
+  "scripts": [
+    "BenchbackState.ts",
+    "BenchbackMain.ts",
+    "BenchbackSpatialController.ts",
+    "BenchbackMarkersMesh.ts",
+    "BenchbackContextUI.ts",
+    "BenchbackSpatialUI.ts",
+    "BenchbackAudioController.ts",
+    "BenchbackSceneContracts.ts"
+  ],
+  "stateOwnership": "BenchbackState is the sole owner of ledger, draft metadata, counts, phase, selection and undo history. UI is passive.",
+  "pipeline": "Generate planned assets through CLAD skills; bootstrap semantic roots with VirtualScene; compile and inspect actual native preview; run each LEAF scenario separately.",
+  "music": "none; focused utility",
+  "verification": "See test-plan.md. No Benchback tests have been run yet.",
+  "publication": "Keep existing main until replacement works. Preserve old project in Git history. Do not submit the hackathon entry.",
+  "limits": [
+    "User-marked positions and counts; no camera recognition or installation verification",
+    "Session-local state; no cross-restart persistence claim",
+    "Physical-glasses comfort and anchor accuracy unproven"
+  ]
+}
