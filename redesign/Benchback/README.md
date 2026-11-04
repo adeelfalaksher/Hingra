@@ -3,7 +3,7 @@
 Benchback is being built as a native SPECS tool for remembering which region a removed part group came from and where it was stored.
 
 ## Current implementation
-The ledger and checkpoint-storage protocol are implemented. The actual TypeScript source passes 12 logic tests, including arbitrary records, per-piece returns, flexible group selection, duplicate/stale actions, exact Undo, recovered-job alignment, capacity limits, damaged data and failed-write/readback handling.
+The ledger and checkpoint-storage protocol are implemented. The actual TypeScript source passes 14 logic tests, including arbitrary records, per-piece returns, flexible group selection, duplicate/stale actions, exact Undo, recovered-job alignment, capacity limits, damaged data and failed-write/readback handling.
 
 Storage tests use an in-memory StringStore with fault injection. Native persistent-storage behavior and the visible Lens workflow still require preview verification. These tests do not establish physical part recognition, installation verification or real-world anchor accuracy.
 
@@ -24,3 +24,6 @@ This folder currently contains the tested core and design documents. A complete 
 - [Verification plan](test-plan.md)
 
 No Benchback working-preview video or final hackathon entry has been submitted.
+
+## Native verification status
+The core includes regression fixes for fresh storage adapters and confirmed replacement after read failures. Native scene and UI modules are authored, but preview text/layout visibility is still being corrected. The LEAF4 testing plugin requested filesystem, asset_library and push_to_device permissions; its broad permission prompt needs the user to approve it before plugin execution. A fully working native workflow has not yet been verified.

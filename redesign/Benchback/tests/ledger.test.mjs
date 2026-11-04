@@ -90,3 +90,19 @@ test("record more preserves return counts after long progress and supports anoth
  const s=new BenchbackState();record(s,30);ok(s,"return");for(let j=0;j<25;j++)ok(s,"confirm",undefined,1);
  ok(s,"recordMore");assert.equal(s.view.ledger.groups[0].returned,25);record(s,2,5);ok(s,"return");assert.equal(s.view.outstanding,7);assert.equal(s.view.ledger.activeId,2);
 });
+
+test("fresh storage adapters load prior sequence before save",()=>{
+ const s=new BenchbackState(),mem=new MemoryStore(),first=new BenchbackStorage(mem,"fresh");
+ record(s);assert.equal(first.save(s.exportJob()).ok,true);ok(s,"return");assert.equal(first.save(s.exportJob()).ok,true);
+ ok(s,"confirm",undefined,1);assert.equal(new BenchbackStorage(mem,"fresh").save(s.exportJob()).ok,true);
+ assert.deepEqual(new BenchbackStorage(mem,"fresh").load().job,s.exportJob());
+});
+test("explicit new job after transient read failure cannot resurrect old higher-sequence data",()=>{
+ const s=new BenchbackState(),mem=new MemoryStore(),first=new BenchbackStorage(mem,"replace");
+ record(s);assert.equal(first.save(s.exportJob()).ok,true);ok(s,"return");assert.equal(first.save(s.exportJob()).ok,true);
+ const originalRead=mem.getString.bind(mem);let failures=2;
+ mem.getString=k=>{if(failures-->0)throw new Error("transient read failure");return originalRead(k);};
+ const next=new BenchbackStorage(mem,"replace");assert.equal(next.load().status,"blocked");
+ const empty=new BenchbackState().exportJob();assert.equal(next.save(empty).ok,false);assert.equal(next.save(empty,true).ok,true);
+ const reopened=new BenchbackStorage(mem,"replace").load();assert.equal(reopened.status,"ready");assert.equal(reopened.job.current.groups.length,0);
+});
